@@ -1,0 +1,76 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+
+  background-color: blueviolet;
+}
+
+.container {
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.input-box {
+  width: 25%;
+  height: 30px;
+  font-size: large;
+  font-weight: 600;
+  margin: auto;
+}
+
+.remain-text {
+  font-size: x-large;
+  font-weight: 600;
+  border: solid black 3px;
+  width: 25%;
+  margin-bottom: 20px;
+  background: #EECDA3;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #EF629F, #EECDA3);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #EF629F, #EECDA3);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  margin: auto;
+}
+
+.eachTodo {
+  display: flex;
+
+  column-gap: 3rem;
+  margin:-2rem;
+  padding: 0rem;
+  flex-direction: row;
+  justify-content: center;
+  font-size: xx-large;
+  font-weight: 600;
+  align-items: center;
+
+
+}
+
+input {
+  box-shadow: 2px 3px 10px 3px;
+
+}
+
+button {
+  width: 30px;
+  height: 30px;
+  box-shadow: 2px 3px 2px 3px;
+  font-size: x-large;
+  font-weight: 700;
+  border-color: black;
+  
+}
+.checkbutton{
+  background-color: green;
+}
+.closebutton{
+  background-color: red;
+}
