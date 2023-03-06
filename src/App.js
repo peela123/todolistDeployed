@@ -16,7 +16,7 @@ function App() {
       return []
     }
   })
-  const [todosCount, setTodoCounts] = useState(0)
+  const [todosCount, setTodoCounts] = useState(todos.length)
 
 
   useEffect(() => {
