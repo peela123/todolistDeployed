@@ -61,32 +61,47 @@ function App() {
 
   }
 
+  
+
   return (
-    <div className="container">
-      <h1>Todo List</h1>
-      <input
-        className="input-box"
-        type="text"
-        placeholder="Enter todo ..."
-        value={todo}
-        onChange={(e) => setTodo(e.target.value)}
-        onKeyUp={onkeyupHandler}
-      />
-      <ul>
-        {todos.map((todo, i) => (
-          <p key={i} id={todo.id} className = "eachTodo">
-            <p style={todo.completed ? { textDecoration: "line-through" ,textDecorationThickness:"4px"} : null}>{todo.text}</p>
-            <button onClick={() => deleteTodo(todo.id)} className="closebutton">X</button>
-            <button onClick={() => markTodo(i)} className="checkbutton">&radic;</button>
-            
-          </p>
-        ))}
-      </ul>
+    <div className="entire-app">
+      
+      <div className="menu-bar">
+        <button className="toggle-button">Toggle</button>
+        
+      </div>
+      
+      
+      <div className="todo-container">
 
-      <p className="remain-text">Remaining task({todosCount})</p>
+        <h1>Todolist App</h1>
+        <input
+          className="input-box"
+          type="text"
+          placeholder="Enter todo ..."
+          value={todo}
+          onChange={(e) => setTodo(e.target.value)}
+          onKeyUp={onkeyupHandler}
+        />
+        <ul>
+          {todos.map((todo, i) => (
+            <p key={i} id={todo.id} className="eachTodo">
+              <p style={todo.completed ? { textDecoration: "line-through", textDecorationThickness: "4px" } : null}>{todo.text}</p>
+              <button onClick={() => deleteTodo(todo.id)} className="closebutton">X</button>
+              <button onClick={() => markTodo(i)} className="checkbutton">&radic;</button>
 
+            </p>
+          ))}
+        </ul>
+
+        <p className="remain-text">Remaining Task({todosCount})</p>
+
+
+      </div>
 
     </div>
+
+
   );
 }
 

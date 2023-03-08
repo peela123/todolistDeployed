@@ -5,7 +5,7 @@ body {
   vertical-align: baseline;
   width: 100%;
   height: 100%;
- 
+  padding-right: -200px;
   background: #FC466B;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -13,12 +13,15 @@ body {
   
 }
 
-.container {
+.todo-container {
 
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  width:50rem;
+  
+  margin: auto;
 }
 
 .input-box {
@@ -49,7 +52,8 @@ body {
   display: flex;
 
   column-gap: 3rem;
-  margin:-2rem;
+  margin-top: -2rem;
+  margin-bottom: -2rem;
   padding: 0rem;
   flex-direction: row;
   justify-content: center;
@@ -79,4 +83,39 @@ button {
 }
 .closebutton{
   background-color: red;
+}
+.toggle-button{
+  
+  color:white;
+  font-size: 1rem;
+  font-weight:300;
+  border-radius: 8%;
+  display: flex;
+  justify-content: center;
+  width: 4.5rem;
+ box-shadow:none;
+ background-color:blue;
+ border: none;
+ align-items: center;
+ border:solid black 3px;
+ margin-right: 2rem;
+ 
+}
+.toggle-button:hover{
+  background-color:darkturquoise;
+}
+.menu-bar{
+  background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%); 
+
+  
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  height: 3rem;
+ 
+  
+  
+  
+  
 }
