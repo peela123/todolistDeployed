@@ -61,17 +61,23 @@ function App() {
 
   }
 
-  
+
 
   return (
     <div className="entire-app">
-      
+
       <div className="menu-bar">
-        <button className="toggle-button">Toggle</button>
+
         
+        <label class="switch sty">
+          <input type="checkbox" />
+          <span class="slider round"></span>
+        </label>
+
+
       </div>
-      
-      
+
+
       <div className="todo-container">
 
         <h1>Todolist App</h1>
