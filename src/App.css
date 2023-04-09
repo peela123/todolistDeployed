@@ -2,55 +2,108 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  vertical-align: baseline;
+  height: 100vh;
+}
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 9rem;
+ 
 }
 
 .todo-container {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  text-align: center;
-  width: 100vw;
-
-  margin: auto;
+  justify-content:first baseline;
+  align-items: center;
+  outline:solid blue 3px;
+  height: 28rem;
+  
+  
 }
+.todos{
+  outline:solid black 5px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  height: 26rem;
+  width:25rem;
+  padding: 0;
 
+
+
+  
+}
+.eachTodo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  font-weight: 600;
+  outline: solid black 1px;
+  height: 3rem;
+  width: 20rem;
+  column-gap: 3rem;
+}
 .input-box {
-  width: 25%;
+  width: 20rem;
   height: 30px;
   font-size: large;
   font-weight: 600;
   margin: auto;
 }
+.clear{
+  display: flex;
+  justify-content: center;
+}
+.clear button{
+  width:7rem;
+  height:2rem;
+  background-color:orange;
+}
 
+
+.myapp-text {
+  color: #fff;
+  margin-left: 2rem;
+  font-size: xx-large;
+  font-weight: 600;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.remain-container {
+  
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:1rem;
+  
+}
 .remain-text {
   font-size: x-large;
   font-weight: 600;
-  border: solid black 3px;
-  width: 25%;
-  margin-bottom: 20px;
+  border: solid black 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  width: 17rem;
+  
   background: #eecda3;
   /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #ef629f, #eecda3);
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #ef629f, #eecda3);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  margin: auto;
-}
-
-.eachTodo {
-  display: flex;
-
-  column-gap: 3rem;
-  margin-top: -2rem;
-  margin-bottom: -2rem;
-  padding: 0rem;
-  flex-direction: row;
-  justify-content: center;
-  font-size: xx-large;
-  font-weight: 600;
-  align-items: center;
 }
 
 input {
@@ -94,7 +147,7 @@ button {
   background-color: darkturquoise;
 }
 
-.menubar-container {
+.navbar-container {
   background: linear-gradient(
     109.6deg,
     rgb(36, 45, 57) 11.2%,
@@ -173,11 +226,6 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.myapp-text {
-  color: aliceblue;
-  margin-left: 2rem;
-  margin-bottom: 2rem;
-}
 .backgroundWhite {
   background-color: white;
   color: black;

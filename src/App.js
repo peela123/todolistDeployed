@@ -17,14 +17,14 @@ function App() {
   });
   const [todosCount, setTodoCounts] = useState(todos.length);
 
-  const [isBackgroundWhite,setIsBackgroundWhite] = useState(true)
+  const [isBackgroundWhite, setIsBackgroundWhite] = useState(true);
 
-  const toggleBackgroundHandler = () =>{
-    setIsBackgroundWhite(!isBackgroundWhite)
-    
-}
+  const toggleBackgroundHandler = () => {
+    setIsBackgroundWhite(!isBackgroundWhite);
+  };
 
   useEffect(() => {
+    
     localStorage.setItem("react-todos", JSON.stringify(todos));
   }, [todos]);
 
@@ -57,21 +57,22 @@ function App() {
     todos[index].completed = !todos[index].completed;
     setTodos([...todos]);
   };
-
+  
+  
   return (
-    <div className = {isBackgroundWhite ? "backgroundWhite" : "backgroundBlack"}>
-      {/* navbar */}
-      <div className="menubar-container">
-        <h1 className="myapp-text">My App</h1>
-        <label className="switch" >
+    <div className={isBackgroundWhite ? "backgroundWhite" : "backgroundBlack"}>
+      <header className="navbar-container">
+        <p className="myapp-text">My App</p>
+        <label className="switch">
           <input type="checkbox" />
-          <span className="slider round" onClick={toggleBackgroundHandler}></span>
+          <span
+            className="slider round"
+            onClick={toggleBackgroundHandler}
+          ></span>
         </label>
-      </div>
-      {/* navbar end */}
+      </header>
 
-      {/* todo container */}
-      <div className ="todo-container">
+      <section className = "header-container">
         <h1>Todolist App</h1>
         <input
           className="input-box"
@@ -81,12 +82,13 @@ function App() {
           onChange={(e) => setTodo(e.target.value)}
           onKeyUp={onkeyupHandler}
         />
-
-        <ul>
+        
+      </section>
+      <section className="todo-container">
+        <ul className = "todos">
           {todos.map((todo, i) => (
-            <p key={i} id={todo.id} className="eachTodo">
-              <p
-                style={
+            <li key={i} id={todo.id} className="eachTodo">
+              <p style={
                   todo.completed
                     ? {
                         textDecoration: "line-through",
@@ -106,13 +108,19 @@ function App() {
               <button onClick={() => markTodo(i)} className="checkbutton">
                 &radic;
               </button>
-            </p>
+            </li>
           ))}
         </ul>
-
-        <p className="remain-text">Remainning Task({todosCount})</p>
+        
+        
+      </section>
+      <div className = "clear">
+        <button>Clear</button>
       </div>
-      {/* todo container end */}
+      
+      <section className="remain-container">
+        <p className="remain-text">Remainning Task({todosCount})</p>
+      </section>
     </div>
   );
 }
