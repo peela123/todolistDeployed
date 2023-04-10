@@ -15,6 +15,13 @@ function App() {
       return [];
     }
   });
+
+  useEffect(() => {
+
+    localStorage.setItem("react-todos", JSON.stringify(todos));
+  }, [todos]);
+  
+
   const [todosCount, setTodoCounts] = useState(todos.length);
 
   const [isBackgroundWhite, setIsBackgroundWhite] = useState(true);
@@ -23,11 +30,7 @@ function App() {
     setIsBackgroundWhite(!isBackgroundWhite);
   };
 
-  useEffect(() => {
-    
-    localStorage.setItem("react-todos", JSON.stringify(todos));
-  }, [todos]);
-
+  
   const onkeyupHandler = (e) => {
     if (e.key !== "Enter") return;
 
@@ -57,8 +60,8 @@ function App() {
     todos[index].completed = !todos[index].completed;
     setTodos([...todos]);
   };
-  
-  
+
+
   return (
     <div className={isBackgroundWhite ? "backgroundWhite" : "backgroundBlack"}>
       <header className="navbar-container">
@@ -72,7 +75,7 @@ function App() {
         </label>
       </header>
 
-      <section className = "header-container">
+      <section className="header-container">
         <h1>Todolist App</h1>
         <input
           className="input-box"
@@ -82,20 +85,20 @@ function App() {
           onChange={(e) => setTodo(e.target.value)}
           onKeyUp={onkeyupHandler}
         />
-        
+
       </section>
       <section className="todo-container">
-        <ul className = "todos">
+        <ul className="todos">
           {todos.map((todo, i) => (
             <li key={i} id={todo.id} className="eachTodo">
               <p style={
-                  todo.completed
-                    ? {
-                        textDecoration: "line-through",
-                        textDecorationThickness: "4px",
-                      }
-                    : null
-                }
+                todo.completed
+                  ? {
+                    textDecoration: "line-through",
+                    textDecorationThickness: "4px",
+                  }
+                  : null
+              }
               >
                 {todo.text}
               </p>
@@ -111,13 +114,13 @@ function App() {
             </li>
           ))}
         </ul>
-        
-        
+
+
       </section>
-      <div className = "clear">
+      <div className="clear">
         <button>Clear</button>
       </div>
-      
+
       <section className="remain-container">
         <p className="remain-text">Remainning Task({todosCount})</p>
       </section>
