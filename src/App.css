@@ -11,21 +11,19 @@ body {
   align-items: center;
   position: relative;
   height: 9rem;
- 
 }
 
 .todo-container {
   display: flex;
   flex-direction: column;
-  justify-content:first baseline;
+  justify-content: first baseline;
   align-items: center;
-  outline:solid blue 3px;
+  
   height: 28rem;
-  
-  
 }
-.todos{
-  outline:solid black 5px;
+.todos-box{
+  border: solid black 5px;
+  
   overflow: auto;
   display: flex;
   flex-direction: column;
@@ -33,12 +31,8 @@ body {
   align-items: center;
   
   height: 26rem;
-  width:25rem;
+  width: 40rem;
   padding: 0;
-
-
-
-  
 }
 .eachTodo {
   display: flex;
@@ -48,8 +42,8 @@ body {
   font-size: xx-large;
   font-weight: 600;
   outline: solid black 1px;
-  height: 3rem;
-  width: 20rem;
+  height: 3.5rem;
+  width: 35rem;
   column-gap: 3rem;
 }
 .input-box {
@@ -59,33 +53,33 @@ body {
   font-weight: 600;
   margin: auto;
 }
-.clear{
+.clear {
   display: flex;
   justify-content: center;
 }
-.clear button{
-  width:7rem;
-  height:2rem;
-  background-color:orange;
+.clear button {
+  width: 7rem;
+  height: 2rem;
+  background-color: #ced93f;
 }
-
+.clear button:hover{
+  background-color:#ed901f;
+}
 
 .myapp-text {
   color: #fff;
   margin-left: 2rem;
   font-size: xx-large;
   font-weight: 600;
-  padding:0 1rem 0.5rem 1rem;  
+  padding: 0 1rem 0.5rem 1rem;
 }
 
 .remain-container {
-  
   height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top:1rem;
-  
+  margin-top: 1rem;
 }
 .remain-text {
   font-size: x-large;
@@ -96,7 +90,7 @@ body {
   align-items: center;
   height: inherit;
   width: 17rem;
-  
+
   background: #eecda3;
   /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #ef629f, #eecda3);
@@ -231,17 +225,9 @@ input:checked + .slider:before {
   height: 100vh;
 }
 .backgroundBlack {
-  background: #373b44; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #4286f4,
-    #373b44
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #4286f4,
-    #373b44
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   color: white;
   height: 100vh;

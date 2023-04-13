@@ -1,36 +1,39 @@
+import { clear } from "@testing-library/user-event/dist/clear";
 import "./App.css";
 import React from "react";
 
 import { useState } from "react";
 import { useEffect } from "react";
-import { EaseInControlPoint, IconsOff } from "tabler-icons-react";
+import { EaseInControlPoint, FirstAidKit, IconsOff } from "tabler-icons-react";
 
 function App() {
   const [todo, setTodo] = useState("");
-  const [todos, setTodos] = useState(() => {
-    const savedTodos = localStorage.getItem("react-todos");
-    if (savedTodos) {
-      return JSON.parse(savedTodos);
-    } else {
-      return [];
-    }
-  });
-
-  useEffect(() => {
-
-    localStorage.setItem("react-todos", JSON.stringify(todos));
-  }, [todos]);
-  
-
+  const [todos, setTodos] = useState([]);
   const [todosCount, setTodoCounts] = useState(todos.length);
 
-  const [isBackgroundWhite, setIsBackgroundWhite] = useState(true);
+  const [isFirstRender, setIsFirstRender] = useState(true);
+  const [isBackgroundBlack, setIsBackgroundBlack] = useState(true);
 
-  const toggleBackgroundHandler = () => {
-    setIsBackgroundWhite(!isBackgroundWhite);
+  //get from local storage
+  useEffect(() => {
+    const storedTodos = localStorage.getItem("react-todos");
+    if(!storedTodos) setTodos([])
+    else setTodos(JSON.parse(storedTodos))
+  }, []);
+  useEffect(() =>{
+    if(isFirstRender){
+      setIsFirstRender(false)
+      return;
+    }
+    saveToLocalStorage()
+  },[todos])
+
+  const saveToLocalStorage = () => {
+    localStorage.setItem("react-todos", JSON.stringify(todos));
   };
-
-  
+  const toggleBackgroundHandler = () => {
+    setIsBackgroundBlack(!isBackgroundBlack);
+  };
   const onkeyupHandler = (e) => {
     if (e.key !== "Enter") return;
 
@@ -51,19 +54,24 @@ function App() {
     }
     setTodo("");
   };
-  const deleteTodo = (ID) => {
-    const newTodos = todos.filter((todo) => todo.id !== ID);
+  const deleteTodo = (id) => {
+    const newTodos = todos.filter((todo) => todo.id !== id);
     setTodos(newTodos);
     setTodoCounts(todosCount - 1);
   };
   const markTodo = (index) => {
+    if (todos[index].completed === false) setTodoCounts(todosCount - 1);
+    else setTodoCounts(todosCount + 1);
     todos[index].completed = !todos[index].completed;
     setTodos([...todos]);
   };
-
+  const clearTodos = () => {
+    localStorage.clear();
+    setTodos([]);
+  };
 
   return (
-    <div className={isBackgroundWhite ? "backgroundWhite" : "backgroundBlack"}>
+    <div className={isBackgroundBlack ? "backgroundBlack" : "backgroundWhite"}>
       <header className="navbar-container">
         <p className="myapp-text">My App</p>
         <label className="switch">
@@ -85,20 +93,20 @@ function App() {
           onChange={(e) => setTodo(e.target.value)}
           onKeyUp={onkeyupHandler}
         />
-
       </section>
       <section className="todo-container">
-        <ul className="todos">
+        <ul className="todos-box">
           {todos.map((todo, i) => (
-            <li key={i} id={todo.id} className="eachTodo">
-              <p style={
-                todo.completed
-                  ? {
-                    textDecoration: "line-through",
-                    textDecorationThickness: "4px",
-                  }
-                  : null
-              }
+            <li key={i} className="eachTodo">
+              <p
+                style={
+                  todo.completed
+                    ? {
+                        textDecoration: "line-through",
+                        textDecorationThickness: "4px",
+                      }
+                    : null
+                }
               >
                 {todo.text}
               </p>
@@ -114,11 +122,9 @@ function App() {
             </li>
           ))}
         </ul>
-
-
       </section>
       <div className="clear">
-        <button>Clear</button>
+        <button onClick={clearTodos}>Clear</button>
       </div>
 
       <section className="remain-container">
